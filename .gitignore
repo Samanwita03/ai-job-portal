@@ -1,0 +1,17 @@
+# VS Code
+.vscode/
+
+# Java crash logs
+hs_err_pid*
+replay_pid*
+
+# React
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+# Spring Boot
+backend/**/target/
+
+# Secrets
+**/application.properties
