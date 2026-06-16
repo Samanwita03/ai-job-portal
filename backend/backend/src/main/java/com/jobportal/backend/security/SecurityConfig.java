@@ -32,11 +32,11 @@ public class SecurityConfig {
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-        .requestMatchers("/api/auth/**").permitAll()
-        .requestMatchers("/api/jobs/all").permitAll()
-        .requestMatchers("/api/applications/ai-match-test").permitAll()
-        .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
-        .anyRequest().authenticated())
+            .requestMatchers("/api/auth/**").permitAll()
+            .requestMatchers("/api/jobs/all").permitAll()
+            .requestMatchers("/api/applications/ai-match-test").permitAll()
+            .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
+            .anyRequest().authenticated())
             .addFilterBefore(jwtAuthFilter,
                 UsernamePasswordAuthenticationFilter.class);
         return http.build();

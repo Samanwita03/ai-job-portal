@@ -57,4 +57,19 @@ public class ApplicationController {
         );
         return ResponseEntity.ok(result);
     }
+    @PutMapping("/{applicationId}/status")
+public ResponseEntity<Application> updateStatus(
+        @PathVariable Long applicationId,
+        @RequestBody Map<String, String> body) {
+    Application updated = applicationService.updateStatus(
+        applicationId, body.get("status"));
+    return ResponseEntity.ok(updated);
+}
+
+@GetMapping("/job/{jobId}/applicants")
+public ResponseEntity<List<Application>> getApplicantsForJob(
+        @PathVariable Long jobId) {
+    return ResponseEntity.ok(
+        applicationService.getApplicationsForJob(jobId));
+}
 }

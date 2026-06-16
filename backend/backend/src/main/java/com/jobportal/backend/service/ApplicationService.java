@@ -61,4 +61,11 @@ public class ApplicationService {
                 .orElseThrow(() -> new RuntimeException("Job not found"));
         return applicationRepository.findByJob(job);
     }
+    public Application updateStatus(Long applicationId, String status) {
+    Application application = applicationRepository.findById(applicationId)
+            .orElseThrow(() -> new RuntimeException("Application not found"));
+    application.setStatus(Application.Status.valueOf(status.toUpperCase()));
+    return applicationRepository.save(application);
+}
+
 }
